@@ -1,6 +1,8 @@
 <div [class.bg-success]="isChecked" class="card m-5 bg-base-100 shadow-xl" *ngIf="todo">
   <div class="card-body">
-    <div class="badge badge-primary hidden">EXPIRED</div>
+    <div [class.hidden]="!todo.expired" class="badge badge-primary bg-error border-error">
+      EXPIRED
+    </div>
     <h2 [class.text-success-content]="isChecked" class="card-title">
       {{ todo.title }}
     </h2>
