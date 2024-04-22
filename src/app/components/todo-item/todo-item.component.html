@@ -1,0 +1,19 @@
+<div [class.bg-success]="isChecked" class="card m-5 bg-base-100 shadow-xl" *ngIf="todo">
+  <div class="card-body">
+    <div class="badge badge-primary hidden">EXPIRED</div>
+    <h2 [class.text-success-content]="isChecked" class="card-title">
+      {{ todo.title }}
+    </h2>
+    <p [class.text-success-content]="isChecked">Due on {{ todo.dueDate | date }}</p>
+    <div class="form-control">
+      <label class="label cursor-pointer">
+        <span [class.text-success-content]="isChecked" class="label-text">Completed</span>
+        <input
+          type="checkbox"
+          [(ngModel)]="isChecked"
+          (change)="onChange(todo.id, $event)"
+          class="checkbox checkbox-primary" />
+      </label>
+    </div>
+  </div>
+</div>

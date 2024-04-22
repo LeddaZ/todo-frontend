@@ -1,0 +1,8 @@
+.card {
+  border-width: 2px;
+  border-color: oklch(var(--p));
+}
+
+.checkbox {
+  border-radius: 50px;
+}
