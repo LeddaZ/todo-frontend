@@ -3,8 +3,7 @@ import { TodoSourceService } from '../../services/todo-source.service'
 
 @Component({
   selector: 'app-todo-list',
-  templateUrl: './todo-list.component.html',
-  styleUrl: './todo-list.component.css'
+  templateUrl: './todo-list.component.html'
 })
 export class TodoListComponent {
   todos$ = this.todoSourceService.fetch()
