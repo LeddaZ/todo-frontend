@@ -9,9 +9,16 @@ import { HttpClientModule } from '@angular/common/http'
 import { TodoSourceService } from './services/todo-source.service'
 import { FormsModule } from '@angular/forms'
 import { HeaderComponent } from './components/header/header.component'
+import { FooterComponent } from './components/footer/footer.component'
 
 @NgModule({
-  declarations: [AppComponent, TodoItemComponent, TodoListComponent, HeaderComponent],
+  declarations: [
+    AppComponent,
+    TodoItemComponent,
+    TodoListComponent,
+    HeaderComponent,
+    FooterComponent
+  ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
   providers: [TodoSourceService],
   bootstrap: [AppComponent]
