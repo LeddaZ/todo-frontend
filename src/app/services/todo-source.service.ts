@@ -20,9 +20,9 @@ export class TodoSourceService {
 
   check(id: string, checked: boolean) {
     if (checked) {
-      this.http.patch<Todo>(`/api/todos/${id}/check`, null).subscribe()
+      this.http.patch<Todo>(`/api/todos/${id}/check`, { completed: checked }).subscribe()
     } else {
-      this.http.patch<Todo>(`/api/todos/${id}/uncheck`, null).subscribe()
+      this.http.patch<Todo>(`/api/todos/${id}/uncheck`, { completed: checked }).subscribe()
     }
   }
 }
