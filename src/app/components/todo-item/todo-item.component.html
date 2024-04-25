@@ -1,20 +1,21 @@
-<div [class.bg-success]="isChecked" class="card m-5 bg-base-100 shadow-xl" *ngIf="todo">
+<div [class.bg-success]="todo.completed" class="card m-5 bg-base-100 shadow-xl" *ngIf="todo">
   <div class="card-body">
     <div [class.hidden]="!todo.expired" class="badge badge-primary bg-error border-error">
       EXPIRED
     </div>
-    <h2 [class.text-success-content]="isChecked" class="card-title">
+    <h2 [class.text-success-content]="todo.completed" class="card-title">
       {{ todo.title }}
     </h2>
-    <p [class.text-success-content]="isChecked">Due on {{ todo.dueDate | date }}</p>
+    <p [class.text-success-content]="todo.completed">Due on {{ todo.dueDate | date }}</p>
     <div class="form-control">
       <label class="label cursor-pointer">
-        <span [class.text-success-content]="isChecked" class="label-text">Completed</span>
+        <span [class.text-success-content]="todo.completed" class="label-text">Completed</span>
         <input
           type="checkbox"
-          [(ngModel)]="isChecked"
-          (change)="onChange(todo.id, $event)"
-          class="checkbox checkbox-primary" />
+          [(ngModel)]="todo.completed"
+          (change)="onChange(todo.id, $event, todo.dueDate)"
+          class="checkbox checkbox-primary"
+          [checked]="todo.completed" />
       </label>
     </div>
   </div>

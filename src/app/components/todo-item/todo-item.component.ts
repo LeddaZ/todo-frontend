@@ -10,12 +10,10 @@ export class TodoItemComponent {
   @Input()
   todo: Todo | null = null
 
-  @Output() checked = new EventEmitter<[string, boolean]>()
+  @Output() checked = new EventEmitter<[string, boolean, string]>()
 
-  isChecked: boolean = false
-
-  onChange(id: string, event: any) {
+  onChange(id: string, event: Event, dueDate: string) {
     const checked = (event.target as HTMLInputElement).checked
-    this.checked.emit([id, checked])
+    this.checked.emit([id, checked, dueDate])
   }
 }
