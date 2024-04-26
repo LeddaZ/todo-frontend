@@ -11,6 +11,7 @@ export class DatepickerComponent {
   model: NgbDateStruct
   minDate: NgbDateStruct
   today = inject(NgbCalendar).getToday()
+  hasDueDate: boolean
 
   @Output() dateChange = new EventEmitter<string>()
 
@@ -18,13 +19,15 @@ export class DatepickerComponent {
     const min = { year: this.today.year, month: this.today.month, day: this.today.day + 1 }
     this.model = min
     this.minDate = min
+    this.hasDueDate = true
   }
 
   getDateString() {
     return `${this.model.year}-${leadingZero(this.model.month)}-${leadingZero(this.model.day)}`
   }
 
-  emitDate() {
-    this.dateChange.emit(this.getDateString())
+  updateDate() {
+    if (this.hasDueDate) this.dateChange.emit(this.getDateString())
+    else this.dateChange.emit(undefined)
   }
 }

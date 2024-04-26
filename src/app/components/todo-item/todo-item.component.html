@@ -11,7 +11,9 @@
     <h2 [class.tw-text-success-content]="todo.completed" class="tw-card-title">
       {{ todo.title }}
     </h2>
-    <p [class.tw-text-success-content]="todo.completed">Due on {{ todo.dueDate | date }}</p>
+    <p [class.tw-text-success-content]="todo.completed">
+      {{ todo.dueDate == undefined ? 'No due date' : 'Due on ' + (todo.dueDate | date) }}
+    </p>
     <div class="tw-form-control">
       <label class="tw-label tw-cursor-pointer">
         <span [class.tw-text-success-content]="todo.completed" class="tw-label-text"
