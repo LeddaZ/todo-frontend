@@ -1,0 +1,7 @@
+<div class="tw-w-min">
+  <span class="tw-input tw-input-bordered tw-flex tw-items-center tw-gap-2">
+    <p class="tw-font-bold">Due date</p>
+    <p>{{ this.getDateString() }}</p>
+  </span>
+  <ngb-datepicker #dp [(ngModel)]="model" (ngModelChange)="emitDate()" [minDate]="minDate" />
+</div>

@@ -1,0 +1,30 @@
+import { Component, EventEmitter, inject, Output } from '@angular/core'
+import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap'
+import { leadingZero } from '../../utils/leading-zero'
+
+@Component({
+  selector: 'app-datepicker',
+  templateUrl: './datepicker.component.html',
+  styleUrl: './datepicker.component.scss'
+})
+export class DatepickerComponent {
+  model: NgbDateStruct
+  minDate: NgbDateStruct
+  today = inject(NgbCalendar).getToday()
+
+  @Output() dateChange = new EventEmitter<string>()
+
+  constructor() {
+    const min = { year: this.today.year, month: this.today.month, day: this.today.day + 1 }
+    this.model = min
+    this.minDate = min
+  }
+
+  getDateString() {
+    return `${this.model.year}-${leadingZero(this.model.month)}-${leadingZero(this.model.day)}`
+  }
+
+  emitDate() {
+    this.dateChange.emit(this.getDateString())
+  }
+}

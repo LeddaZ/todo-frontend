@@ -14,6 +14,10 @@ export class TodoSourceService {
     return this.http.get<Todo[]>(`/api/todos`)
   }
 
+  add(title: string, dueDate: string): Observable<Todo> {
+    return this.http.post<Todo>(`/api/todos`, { title, dueDate })
+  }
+
   check(id: string, checked: boolean, dueDate: string): Observable<Todo> {
     if (checked) {
       return this.http.patch<Todo>(`/api/todos/${id}/check`, { completed: checked, expired: false })

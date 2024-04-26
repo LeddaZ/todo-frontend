@@ -1,8 +1,8 @@
-.card {
+.tw-card {
   border-width: 2px;
   border-color: oklch(var(--p));
 }
 
-.checkbox {
+.tw-checkbox {
   border-radius: 50px;
 }
