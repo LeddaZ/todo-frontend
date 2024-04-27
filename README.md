@@ -12,5 +12,7 @@ Make sure you have [Git](https://git-scm.com/), [Node.js](https://nodejs.org/), 
 git clone https://github.com/LeddaZ/todo-frontend
 cd todo-frontend
 npm i
-ng serve --open
+# Set your desired development and production API URLs in src/environments/environment.development.ts and src/environments/environment.ts respectively
+ng serve --open # Automatically opens a new browser tab/window
+ng serve # Runs the app without launching the browser
 ```
