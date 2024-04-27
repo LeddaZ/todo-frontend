@@ -7,11 +7,13 @@ import { ReplaySubject, Subject, switchMap, takeUntil } from 'rxjs'
   templateUrl: './todo-list.component.html'
 })
 export class TodoListComponent implements OnInit, OnDestroy {
+  showCompleted!: boolean
+
   protected destroyed$ = new Subject<void>()
 
   protected _todos$ = new ReplaySubject<void>()
   todos$ = this._todos$.pipe(
-    switchMap(() => this.todoSourceService.fetch()),
+    switchMap(() => this.todoSourceService.fetch(this.showCompleted)),
     takeUntil(this.destroyed$)
   )
 
@@ -36,5 +38,10 @@ export class TodoListComponent implements OnInit, OnDestroy {
     this.todoSourceService.add(data[0], data[1]).subscribe(() => {
       this._todos$.next()
     })
+  }
+
+  updateShowCompleted() {
+    this.showCompleted = !this.showCompleted
+    this._todos$.next()
   }
 }

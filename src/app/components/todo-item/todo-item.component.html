@@ -1,6 +1,6 @@
 <div
   [class.tw-bg-success]="todo.completed"
-  class="tw-card tw-m-5 tw-bg-base-100 tw-shadow-xl"
+  class="tw-card tw-border-2 tw-m-5 tw-bg-base-100 tw-shadow-xl"
   *ngIf="todo">
   <div class="tw-card-body">
     <div
@@ -23,7 +23,7 @@
           type="checkbox"
           [(ngModel)]="todo.completed"
           (change)="onChange(todo.id, $event, todo.dueDate)"
-          class="tw-checkbox tw-checkbox-primary"
+          class="tw-checkbox tw-checkbox-primary tw-rounded-full"
           [checked]="todo.completed" />
       </label>
     </div>

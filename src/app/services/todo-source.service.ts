@@ -10,8 +10,8 @@ import { Observable } from 'rxjs'
 export class TodoSourceService {
   constructor(protected http: HttpClient) {}
 
-  fetch() {
-    return this.http.get<Todo[]>(`/api/todos`)
+  fetch(showCompleted: boolean) {
+    return this.http.get<Todo[]>(`/api/todos`, { params: { showCompleted: showCompleted } })
   }
 
   add(title: string, dueDate: string): Observable<Todo> {
