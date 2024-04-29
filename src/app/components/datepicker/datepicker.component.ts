@@ -1,4 +1,4 @@
-import { Component, EventEmitter, inject, Output } from '@angular/core'
+import { Component, EventEmitter, inject, OnInit, Output } from '@angular/core'
 import { NgbDateStruct, NgbCalendar } from '@ng-bootstrap/ng-bootstrap'
 import { leadingZero } from '../../utils/leading-zero'
 
@@ -7,7 +7,7 @@ import { leadingZero } from '../../utils/leading-zero'
   templateUrl: './datepicker.component.html',
   styleUrl: './datepicker.component.scss'
 })
-export class DatepickerComponent {
+export class DatepickerComponent implements OnInit {
   model: NgbDateStruct
   minDate: NgbDateStruct
   today = inject(NgbCalendar).getToday()
@@ -20,6 +20,10 @@ export class DatepickerComponent {
     this.model = min
     this.minDate = min
     this.hasDueDate = true
+  }
+
+  ngOnInit() {
+    this.updateDate()
   }
 
   getDateString() {
