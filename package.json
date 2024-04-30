@@ -33,6 +33,7 @@
     "@angular/compiler-cli": "^17.3.6",
     "@angular/localize": "^17.3.6",
     "@types/jasmine": "~5.1.0",
+    "angular-cli-ghpages": "^2.0.0-beta.2",
     "autoprefixer": "^10.4.19",
     "daisyui": "^4.10.2",
     "jasmine-core": "~5.1.0",
