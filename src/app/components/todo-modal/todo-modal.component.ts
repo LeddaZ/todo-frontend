@@ -18,4 +18,8 @@ export class TodoModalComponent {
   onDateChange(date: string) {
     this.date = date
   }
+
+  reset() {
+    this.title = ''
+  }
 }
