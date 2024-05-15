@@ -1,6 +1,7 @@
 {
   "name": "todo-frontend",
   "version": "1.0.0",
+  "author": "Leonardo Ledda",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
