@@ -17,8 +17,15 @@ export class TodoSourceService {
     })
   }
 
-  add(title: string, dueDate: string): Observable<Todo> {
-    return this.http.post<Todo>(`${environment.apiUrl}/api/todos`, { title, dueDate })
+  add(title: string, dueDate: string, userId: string): Observable<Todo> {
+    if (userId == '')
+      return this.http.post<Todo>(`${environment.apiUrl}/api/todos`, { title, dueDate })
+    else
+      return this.http.post<Todo>(`${environment.apiUrl}/api/todos`, {
+        title,
+        dueDate,
+        assignedTo: userId
+      })
   }
 
   check(id: string, checked: boolean, dueDate: string): Observable<Todo> {
@@ -33,5 +40,9 @@ export class TodoSourceService {
         expired: isExpired(dueDate)
       })
     }
+  }
+
+  assign(id: string, userId: string): Observable<Todo> {
+    return this.http.patch<Todo>(`${environment.apiUrl}/api/todos/${id}/assign`, { userId })
   }
 }

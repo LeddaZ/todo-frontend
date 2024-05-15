@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing'
 
-import { HeaderComponent } from './header.component'
+import { AssignModalComponent } from './assign-modal.component'
 
-describe('HeaderComponent', () => {
-  let component: HeaderComponent
-  let fixture: ComponentFixture<HeaderComponent>
+describe('AssignModalComponent', () => {
+  let component: AssignModalComponent
+  let fixture: ComponentFixture<AssignModalComponent>
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [HeaderComponent]
+      declarations: [AssignModalComponent]
     }).compileComponents()
 
-    fixture = TestBed.createComponent(HeaderComponent)
+    fixture = TestBed.createComponent(AssignModalComponent)
     component = fixture.componentInstance
     fixture.detectChanges()
   })

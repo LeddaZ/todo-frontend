@@ -34,8 +34,8 @@ export class TodoListComponent implements OnInit, OnDestroy {
     })
   }
 
-  addTodo(data: [string, string]) {
-    this.todoSourceService.add(data[0], data[1]).subscribe(() => {
+  addTodo(data: [string, string, string]) {
+    this.todoSourceService.add(data[0], data[1], data[2]).subscribe(() => {
       this._todos$.next()
     })
   }
