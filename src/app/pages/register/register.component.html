@@ -3,27 +3,27 @@
   <div class="tw-w-4/5 md:tw-w-2/3 lg:tw-w-2/5 xl:tw-w-1/3 tw-mx-auto">
     <form (ngSubmit)="signUp()" [formGroup]="registrationForm">
       <label class="tw-input tw-input-bordered tw-flex tw-items-center tw-gap-2 tw-my-3">
-        <p class="tw-font-bold">Name</p>
+        <p class="tw-font-semibold tw-w-28">Name</p>
         <input required type="text" class="tw-w-full" formControlName="firstName" />
       </label>
       <label class="tw-input tw-input-bordered tw-flex tw-items-center tw-gap-2 tw-my-3">
-        <p class="tw-font-bold">Surname</p>
+        <p class="tw-font-semibold tw-w-28">Surname</p>
         <input required type="text" class="tw-w-full" formControlName="lastName" />
       </label>
       <label class="tw-input tw-input-bordered tw-flex tw-items-center tw-gap-2 tw-my-3">
-        <p class="tw-font-bold">Username</p>
+        <p class="tw-font-semibold tw-w-28">Username</p>
         <input required type="email" class="tw-w-full" formControlName="username" />
       </label>
       <label class="tw-input tw-input-bordered tw-flex tw-items-center tw-gap-2 tw-my-3">
-        <p class="tw-font-bold">Password</p>
+        <p class="tw-font-semibold tw-w-28">Password</p>
         <input required type="password" class="tw-w-full" formControlName="password" />
       </label>
       <label class="tw-input tw-input-bordered tw-flex tw-items-center tw-gap-2 tw-my-3">
-        <p class="tw-font-bold">Confirm password</p>
+        <p class="tw-font-semibold tw-w-28">Confirm password</p>
         <input required type="password" class="tw-w-full" formControlName="confirmPassword" />
       </label>
       <label class="tw-input tw-input-bordered tw-flex tw-items-center tw-gap-2 tw-my-3">
-        <p class="tw-font-bold">Picture URL</p>
+        <p class="tw-font-semibold tw-w-28">Picture URL</p>
         <input required type="url" class="tw-w-full" formControlName="picture" />
       </label>
       <div class="tw-text-error tw-text-center" *ngIf="registrationError">
@@ -49,6 +49,6 @@
   </div>
   <p class="tw-text-center">
     Already have an account?
-    <a class="tw-text-success tw-font-semibold" routerLink="/login">Login</a>
+    <a class="tw-text-success tw-font-semibold" routerLink="/login">Log in</a>
   </p>
 </div>

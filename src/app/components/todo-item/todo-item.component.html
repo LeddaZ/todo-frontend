@@ -16,23 +16,23 @@
     </p>
     <div class="tw-flex tw-items-center">
       <p
-        class="tw-max-w-80 tw-min-w-0 tw-overflow-hidden"
+        class="tw-m-auto tw-max-w-80 tw-min-w-0 tw-overflow-hidden"
         [class.tw-text-success-content]="todo.completed">
         <span class="tw-font-semibold">Created by</span> {{ todo.createdBy.fullName }}
       </p>
       <img
-        class="tw-w-10 tw-h-10 tw-rounded-full"
+        class="tw-w-10 tw-h-10 tw-object-cover tw-m-auto tw-rounded-full"
         [src]="todo.createdBy.picture"
         alt="Creator avatar" />
     </div>
     <div class="tw-flex" *ngIf="todo.assignedTo">
       <p
-        class="tw-max-w-80 tw-min-w-0 tw-overflow-hidden"
+        class="tw-m-auto tw-max-w-80 tw-min-w-0 tw-overflow-hidden"
         [class.tw-text-success-content]="todo.completed">
         <span class="tw-font-semibold">Assigned to</span> {{ todo.assignedTo.fullName }}
       </p>
       <img
-        class="tw-w-10 tw-h-10 tw-rounded-full"
+        class="tw-w-10 tw-h-10 tw-object-cover tw-m-auto tw-rounded-full"
         [src]="todo.assignedTo.picture"
         alt="Assigned user avatar" />
     </div>
