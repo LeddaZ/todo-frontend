@@ -15,6 +15,8 @@ export class TodoItemComponent {
 
   @Output() checked = new EventEmitter<[string, boolean, string]>()
 
+  @Output() assigned = new EventEmitter<[string, string]>()
+
   constructor(protected todoSrv: TodoSourceService) {}
 
   onChange(id: string, event: Event, dueDate: string) {
@@ -23,8 +25,6 @@ export class TodoItemComponent {
   }
 
   assign(userId: string) {
-    this.todoSrv.assign(this.todo.id, userId).subscribe((todo) => {
-      this.todo = todo
-    })
+    this.assigned.emit([this.todo.id, userId])
   }
 }

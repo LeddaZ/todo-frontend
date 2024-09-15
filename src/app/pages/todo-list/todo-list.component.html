@@ -32,6 +32,7 @@
     <app-todo-item
       *ngFor="let todo of todos$ | async"
       [todo]="todo"
-      (checked)="onCheckboxChange($event)"></app-todo-item>
+      (checked)="onCheckboxChange($event)"
+      (assigned)="onAssign($event)"></app-todo-item>
   </div>
 </div>

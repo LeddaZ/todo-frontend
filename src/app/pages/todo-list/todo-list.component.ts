@@ -13,11 +13,11 @@ export class TodoListComponent implements OnInit, OnDestroy {
 
   protected _todos$ = new ReplaySubject<void>()
   todos$ = this._todos$.pipe(
-    switchMap(() => this.todoSourceService.fetch(this.showCompleted)),
+    switchMap(() => this.todoSrv.fetch(this.showCompleted)),
     takeUntil(this.destroyed$)
   )
 
-  constructor(protected todoSourceService: TodoSourceService) {}
+  constructor(protected todoSrv: TodoSourceService) {}
 
   ngOnInit(): void {
     this._todos$.next()
@@ -29,13 +29,13 @@ export class TodoListComponent implements OnInit, OnDestroy {
   }
 
   onCheckboxChange(todo: [string, boolean, string]) {
-    this.todoSourceService.check(todo[0], todo[1], todo[2]).subscribe(() => {
+    this.todoSrv.check(todo[0], todo[1], todo[2]).subscribe(() => {
       this._todos$.next()
     })
   }
 
   addTodo(data: [string, string, string]) {
-    this.todoSourceService.add(data[0], data[1], data[2]).subscribe(() => {
+    this.todoSrv.add(data[0], data[1], data[2]).subscribe(() => {
       this._todos$.next()
     })
   }
@@ -43,5 +43,11 @@ export class TodoListComponent implements OnInit, OnDestroy {
   updateShowCompleted() {
     this.showCompleted = !this.showCompleted
     this._todos$.next()
+  }
+
+  onAssign(data: [string, string]) {
+    this.todoSrv.assign(data[0], data[1]).subscribe(() => {
+      this._todos$.next()
+    })
   }
 }
