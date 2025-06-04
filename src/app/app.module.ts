@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module'
 import { AppComponent } from './app.component'
 import { TodoItemComponent } from './components/todo-item/todo-item.component'
 import { TodoListComponent } from './pages/todo-list/todo-list.component'
-import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http'
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { TodoSourceService } from './services/todo-source.service'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { FooterComponent } from './components/footer/footer.component'
@@ -19,32 +19,26 @@ import { AssignModalComponent } from './components/assign-modal/assign-modal.com
 import { NavbarComponent } from './components/navbar/navbar.component'
 import { RegisterComponent } from './pages/register/register.component'
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    TodoItemComponent,
-    TodoListComponent,
-    FooterComponent,
-    TodoModalComponent,
-    DatepickerComponent,
-    LoginComponent,
-    IfAuthenticatedDirective,
-    AssignModalComponent,
-    NavbarComponent,
-    RegisterComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    NgbDatepickerModule,
-    ReactiveFormsModule
-  ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-    TodoSourceService
-  ],
-  bootstrap: [AppComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        TodoItemComponent,
+        TodoListComponent,
+        FooterComponent,
+        TodoModalComponent,
+        DatepickerComponent,
+        LoginComponent,
+        IfAuthenticatedDirective,
+        AssignModalComponent,
+        NavbarComponent,
+        RegisterComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        FormsModule,
+        NgbDatepickerModule,
+        ReactiveFormsModule], providers: [
+        { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+        TodoSourceService,
+        provideHttpClient(withInterceptorsFromDi())
+    ] })
 export class AppModule {}
