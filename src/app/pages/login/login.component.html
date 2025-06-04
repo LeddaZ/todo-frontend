@@ -10,9 +10,11 @@
         <p class="tw-font-semibold tw-w-28">Password</p>
         <input type="password" class="tw-w-full" formControlName="password" />
       </label>
-      <div class="tw-text-error" *ngIf="loginError">
-        {{ loginError }}
-      </div>
+      @if (loginError) {
+        <div class="tw-text-error">
+          {{ loginError }}
+        </div>
+      }
       <div class="tw-text-center">
         <button
           type="submit"

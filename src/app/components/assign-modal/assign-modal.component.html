@@ -5,6 +5,8 @@
     class="tw-select tw-select-primary tw-w-full"
     [(ngModel)]="userId"
     (change)="assign()">
-    <option *ngFor="let user of users" [ngValue]="user.id">{{ user.fullName }}</option>
+    @for (user of users; track user) {
+      <option [ngValue]="user.id">{{ user.fullName }}</option>
+    }
   </select>
 </details>

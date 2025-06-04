@@ -10,12 +10,14 @@
     <div class="tw-grid sm:tw-grid-cols-1 md:tw-grid-cols-2">
       <app-datepicker
         class="tw-inline tw-mx-auto"
-        (dateChange)="onDateChange($event)"></app-datepicker>
+      (dateChange)="onDateChange($event)"></app-datepicker>
       <div class="tw-p-4 tw-m-auto">
         <label class="tw-label" for="users">Assign to</label>
         <select name="users" class="tw-select tw-select-primary tw-w-full" [(ngModel)]="userId">
           <option value="" selected>Do not assign</option>
-          <option *ngFor="let user of users" [ngValue]="user.id">{{ user.fullName }}</option>
+          @for (user of users; track user) {
+            <option [ngValue]="user.id">{{ user.fullName }}</option>
+          }
         </select>
       </div>
     </div>

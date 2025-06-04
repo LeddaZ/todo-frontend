@@ -26,17 +26,21 @@
         <p class="tw-font-semibold tw-w-28">Picture URL</p>
         <input required type="url" class="tw-w-full" formControlName="picture" />
       </label>
-      <div class="tw-text-error tw-text-center" *ngIf="registrationError">
-        {{ registrationError }}
-      </div>
-      <div
-        class="tw-text-error tw-text-center"
-        *ngIf="
-          registrationForm.controls.password.value !=
-          registrationForm.controls.confirmPassword.value
-        ">
-        Passwords do not match
-      </div>
+      @if (registrationError) {
+        <div class="tw-text-error tw-text-center">
+          {{ registrationError }}
+        </div>
+      }
+      @if (
+        registrationForm.controls.password.value !=
+        registrationForm.controls.confirmPassword.value
+        ) {
+        <div
+          class="tw-text-error tw-text-center"
+          >
+          Passwords do not match
+        </div>
+      }
       <div class="tw-text-center">
         <button
           type="submit"
