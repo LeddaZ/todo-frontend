@@ -3,8 +3,9 @@ import { TodoSourceService } from '../../services/todo-source.service'
 import { ReplaySubject, Subject, switchMap, takeUntil } from 'rxjs'
 
 @Component({
-  selector: 'app-todo-list',
-  templateUrl: './todo-list.component.html'
+    selector: 'app-todo-list',
+    templateUrl: './todo-list.component.html',
+    standalone: false
 })
 export class TodoListComponent implements OnInit, OnDestroy {
   showCompleted!: boolean

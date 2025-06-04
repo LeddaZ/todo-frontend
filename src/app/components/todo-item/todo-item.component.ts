@@ -3,9 +3,10 @@ import { Todo } from '../../entities/todo.entity'
 import { TodoSourceService } from '../../services/todo-source.service'
 
 @Component({
-  selector: 'app-todo-item',
-  templateUrl: './todo-item.component.html',
-  styleUrl: './todo-item.component.css'
+    selector: 'app-todo-item',
+    templateUrl: './todo-item.component.html',
+    styleUrl: './todo-item.component.css',
+    standalone: false
 })
 export class TodoItemComponent {
   userId!: string

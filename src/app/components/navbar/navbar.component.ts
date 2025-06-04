@@ -3,8 +3,9 @@ import { UserService } from '../../services/user.service'
 import { User } from '../../entities/user.entity'
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html'
+    selector: 'app-navbar',
+    templateUrl: './navbar.component.html',
+    standalone: false
 })
 export class NavbarComponent {
   @Input() user: User | null = null

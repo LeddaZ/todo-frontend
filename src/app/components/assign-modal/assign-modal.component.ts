@@ -3,8 +3,9 @@ import { UserService } from '../../services/user.service'
 import { User } from '../../entities/user.entity'
 
 @Component({
-  selector: 'app-assign-modal',
-  templateUrl: './assign-modal.component.html'
+    selector: 'app-assign-modal',
+    templateUrl: './assign-modal.component.html',
+    standalone: false
 })
 export class AssignModalComponent implements OnInit {
   userId!: string

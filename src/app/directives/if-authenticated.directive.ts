@@ -4,8 +4,9 @@ import { Subject } from 'rxjs'
 import { AuthService } from '../services/auth.service'
 
 @Directive({
-  // tslint:disable-next-line: directive-selector
-  selector: '[ifAuthenticated]'
+    // tslint:disable-next-line: directive-selector
+    selector: '[ifAuthenticated]',
+    standalone: false
 })
 export class IfAuthenticatedDirective implements OnInit, OnDestroy {
   protected destroyed$ = new Subject<void>()

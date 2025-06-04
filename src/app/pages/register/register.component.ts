@@ -5,8 +5,9 @@ import { Subject, takeUntil, catchError, throwError } from 'rxjs'
 import { AuthService } from '../../services/auth.service'
 
 @Component({
-  selector: 'app-register',
-  templateUrl: './register.component.html'
+    selector: 'app-register',
+    templateUrl: './register.component.html',
+    standalone: false
 })
 export class RegisterComponent implements OnInit, OnDestroy {
   registrationForm = this.fb.group({

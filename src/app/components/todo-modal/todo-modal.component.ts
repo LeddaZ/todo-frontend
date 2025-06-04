@@ -3,8 +3,9 @@ import { User } from '../../entities/user.entity'
 import { UserService } from '../../services/user.service'
 
 @Component({
-  selector: 'app-todo-modal',
-  templateUrl: './todo-modal.component.html'
+    selector: 'app-todo-modal',
+    templateUrl: './todo-modal.component.html',
+    standalone: false
 })
 export class TodoModalComponent implements OnInit {
   minDate = Date()

@@ -3,9 +3,10 @@ import { NgbCalendar, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap'
 import { leadingZero } from '../../utils/leading-zero'
 
 @Component({
-  selector: 'app-datepicker',
-  templateUrl: './datepicker.component.html',
-  styleUrl: './datepicker.component.scss'
+    selector: 'app-datepicker',
+    templateUrl: './datepicker.component.html',
+    styleUrl: './datepicker.component.scss',
+    standalone: false
 })
 export class DatepickerComponent implements OnInit {
   model: NgbDateStruct
